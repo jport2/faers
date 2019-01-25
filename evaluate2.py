@@ -83,6 +83,6 @@ roc_auc = dict()
 # rocdf2['Ground Truth (1-postive control; 0-negative control)'] = pd.to_numeric(rocdf2['Ground Truth (1-postive control; 0-negative control)'])
 rocdf.ix[:,4] = pd.to_numeric(rocdf.ix[:,4])
 
-rocdf2['CosScore'] = pd.to_numeric(rocdf2['CosScore'])
-fpr, tpr, _ = roc_curve(rocdf2['Ground Truth (1-postive control; 0-negative control)'], rocdf2['Score'])
+rocdf2['CosScore'] = pd.to_numeric(rocdf['CosScore'])
+fpr, tpr, _ = roc_curve(rocdf['Ground Truth (1-postive control; 0-negative control)'], rocdf['Score'])
 roc_auc = auc(fpr, tpr)
