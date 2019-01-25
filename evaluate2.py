@@ -20,7 +20,7 @@ output2 = output2.reindex(output2.index.drop(0))
 # get lists of outcomes from previous script
 # subset to drugs and outcomes
 
-os.chdir("../../../../../jportanova/Downloads")
+os.chdir("../../../../../../jportanova/Downloads")
 ryan = pd.read_csv("40264_2013_97_MOESM1_ESM.csv")
 drugs = ryan.ix[:,3].unique()
 drugs = ">" + drugs
