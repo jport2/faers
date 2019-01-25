@@ -80,7 +80,6 @@ fpr = dict()
 tpr = dict()
 roc_auc = dict()
 
-rocdf2 = rocdf.groupby(['drugoutcome'])['Score'].max()
 rocdf2['Ground Truth (1-postive control; 0-negative control)'] = pd.to_numeric(rocdf2['Ground Truth (1-postive control; 0-negative control)'])
 rocdf2.ix[:,4] = pd.to_numeric(rocdf2.ix[:,4])
 
