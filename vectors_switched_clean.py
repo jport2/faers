@@ -17,8 +17,8 @@ ryan['Drug Concept Name'] = ryan['Drug Concept Name'].str.lower()
 drugs = ryan.ix[:,3].unique()
 
 
-outcomes = [">acute_myocardial_infarction", ">renal_failure_acute", ">acute_kindey_injury",
-                                 ">acute_hepatic_failure",">gastrointestinal_haemorrhage"]
+outcomes = [">acute_myocardial_infarction",">gastrointestinal_haemorrhage",">acute_hepatic_failure",">renal_failure_acute"]
+
 
 output3 = np.transpose(output2)
 output3.index = output3.index.str.lower()
