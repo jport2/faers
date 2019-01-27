@@ -51,7 +51,8 @@ ryan['drugoutcome'] = ryan['drugoutcome'].str.lower()
 # change outcomes in drug outcome for df
 df = df.replace("gastrointestinal", "gi", regex=True)
 df = df.replace("haemorrhage", "bleed", regex=True)
-
+df = df.replace("acute_hepatic_failure", "acute_liver_injury", regex=True)
+df = df.replace("renal_failure_acute", "acute_kidney_injury", regex=True)
 # left join ryan and df
 
 rocdf = pd.merge(ryan, df, how="inner", on="drugoutcome")
