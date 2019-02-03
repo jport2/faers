@@ -53,6 +53,14 @@ for i in range(0, input3dep.shape[1],1):
 # ROC Curve
 # Change Outcome to the same
 
+
+
+# change outcomes in drug outcome for df
+df = df.replace("gastrointestinal", "gi", regex=True)
+df = df.replace("haemorrhage", "bleed", regex=True)
+df = df.replace("acute_hepatic_failure", "acute_liver_injury", regex=True)
+df = df.replace("renal_failure_acute", "acute_kidney_injury", regex=True)
+
 # create drugoutcome variable for both data sets
 ryan['drugoutcome'] = ryan.ix[:,3] + ryan.ix[:,1]
 df['drugoutcome'] = df.ix[:,1] + df.ix[:,2]
@@ -65,13 +73,6 @@ ryan = ryan.replace(" ", "_", regex=True)
 # lower drugoutcome variable
 df['drugoutcome'] = df['drugoutcome'].str.lower()
 ryan['drugoutcome'] = ryan['drugoutcome'].str.lower()
-
-# change outcomes in drug outcome for df
-df = df.replace("gastrointestinal", "gi", regex=True)
-df = df.replace("haemorrhage", "bleed", regex=True)
-df = df.replace("acute_hepatic_failure", "acute_liver_injury", regex=True)
-df = df.replace("renal_failure_acute", "acute_kidney_injury", regex=True)
-
 # left join ryan and df
 
 rocdf = pd.merge(ryan, df, how="inner", on="drugoutcome")
