@@ -8,8 +8,9 @@ input_vectors = incoming_vectors.set_index(0).T.to_dict('list')
 outgoing_vectors = pd.read_csv('outputweightvectors.txt',skiprows=1,sep='|',header=None)
 output_vectors = outgoing_vectors.set_index(0).T.to_dict('list')
 
+os.chdir("/home/jportanova/Downloads")
 ryan = pd.read_csv("cleanRyan.csv",skiprows=0,header=None)
-ryan.ix[:,0]=">"+ryan.ix[:,0]
+ryan.ix[:,1]=">"+ryan.ix[:,1]
 print(ryan.head())
 
 df = pd.DataFrame()
