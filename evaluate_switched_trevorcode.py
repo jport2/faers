@@ -17,10 +17,10 @@ df = pd.DataFrame()
 for i in range(0,len(ryan.ix[:,1]),1):
     ade=ryan.ix[i,0]
     drug=ryan.ix[i,1]
-    if (drug in output_vectors):
+    if (ade in output_vectors):
         label=ryan.ix[i,2]
-        sigscalar = 1 / (1 + np.exp(-np.dot(input_vectors[ade], output_vectors[drug])))
-        cosine = np.dot(input_vectors[ade], output_vectors[drug])/(np.linalg.norm(input_vectors[ade])*np.linalg.norm(output_vectors[drug]))
+        sigscalar = 1 / (1 + np.exp(-np.dot(input_vectors[drug], output_vectors[ade])))
+        cosine = np.dot(input_vectors[drug], output_vectors[ade])/(np.linalg.norm(input_vectors[drug])*np.linalg.norm(output_vectors[ade]))
         df = df.append({"Drug":drug,"ADE":ade,"label":label,"cosine":cosine,"sigscalar":sigscalar}, ignore_index=True)
 
 print(df.head())
